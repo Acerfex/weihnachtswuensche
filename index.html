@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Wunschliste Weihnachten</title>
+
+  <!-- Schriften -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+      padding-top: 50px;
+      background-image: url('https://i.postimg.cc/15MkvG5b/K1611.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: 'Merriweather', serif;
+      color: white;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* 🌨️ Schneefall */
+    @keyframes snow {
+      0% { transform: translateY(-10vh); opacity: 1; }
+      100% { transform: translateY(110vh); opacity: 0; }
+    }
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      font-size: 1em;
+      opacity: 0.8;
+      animation: snow linear infinite;
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+    /* ✨ Glitzer-Animation für Überschriften */
+    @keyframes shimmer {
+      0% { text-shadow: 0 0 15px rgba(255,215,0,0.4); }
+      50% { text-shadow: 0 0 35px rgba(255,215,0,1); }
+      100% { text-shadow: 0 0 15px rgba(255,215,0,0.4); }
+    }
+
+    /* ✨ Funken neben Wünschen */
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.4); }
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4em;
+      padding: 25px 40px;
+      margin-bottom: 25px;
+      border: 4px solid rgba(255,215,0,0.75);
+      border-radius: 18px;
+      background: rgba(0,0,0,0.55);
+      letter-spacing: 3px;
+      animation: shimmer 4s ease-in-out infinite;
+      color: #ffeb99;
+      position: relative;
+    }
+
+    h2 {
+      font-size: 2.2em;
+      padding: 12px 20px;
+      margin-top: 20px;
+      border-radius: 12px;
+      background: rgba(0,0,0,0.45);
+      color: #ffdf66;
+      text-shadow: 0 0 12px rgba(255,215,0,0.9);
+    }
+
+    /* 🎁 Wunschliste Layout */
+    .wunschliste {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* zentriert die Liste */
+      margin: 30px auto;
+      max-width: 600px;
+    }
+
+    .wunsch {
+      display: flex;
+      align-items: flex-start; /* Text + Strich + Notizen in einer Linie */
+      justify-content: flex-start;
+      padding: 8px 16px;
+      margin: 6px 0;
+      background: rgba(0,0,0,0.35);
+      border-radius: 12px;
+      font-size: 1.3em;
+      color: #ffe8a8;
+      text-shadow: 0 0 10px rgba(255,215,0,0.7), 2px 2px 6px rgba(0,0,0,0.8);
+      width: 100%;
+      max-width: 500px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .wunsch span {
+      display: inline-block;
+      width: 35px; /* Striche perfekt synchron */
+      text-align: right;
+      margin-right: 15px;
+      font-weight: bold;
+      color: #ffdf66;
+      flex-shrink: 0;
+    }
+
+    .wunsch a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+    }
+
+    /* Funken neben Links */
+    .wunsch a::after {
+      content: '✨';
+      margin-left: 6px;
+      color: #fff5a8;
+      animation: sparkle 2s infinite;
+      font-size: 1em;
+    }
+
+    .wunsch a:hover {
+      text-decoration: underline;
+      text-shadow: 0 0 20px rgba(255,215,0,1);
+    }
+
+    /* ✨ Notizen hinter den Links - statisch */
+    .notiz {
+      margin-left: 12px;
+      font-size: 0.95em;
+      color: #ffeeaa;
+      font-style: italic;
+      text-shadow: 0 0 5px rgba(255,215,0,0.5);
+      flex-grow: 1;
+      text-align: left;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Schneefall -->
+  <script>
+    function createSnowflake() {
+      const snowflake = document.createElement("div");
+      snowflake.classList.add("snowflake");
+      snowflake.textContent = "❄";
+      snowflake.style.left = Math.random() * 100 + "vw";
+      snowflake.style.animationDuration = (4 + Math.random() * 6) + "s";
+      snowflake.style.fontSize = (10 + Math.random() * 20) + "px";
+      document.body.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), 10000);
+    }
+    setInterval(createSnowflake, 150);
+  </script>
+
+  <h1>Wunschliste Weihnachten</h1>
+  <h2>(Von Jona)</h2>
+  <h2>Meine Wünsche:</h2>
+
+  <div class="wunschliste">
+    <div class="wunsch"><span>-</span> <a href="https://www.amazon.de/SWOFY-Touchscreen-eingebauter-Lautsprecher-kindergerecht-Schwarz/dp/B0F89VH8YB?source=ps-sl-shoppingads-lpcontext&smid=A32X3R9BN2L0EE&th=1">MP3 Player</a> <span class="notiz">(Hab einen guten gefunden)</span></div>
+    <div class="wunsch"><span>-</span> <a href="https://www.amazon.de/dp/B08SLRK4XG/?tag=glv-21&ascsubtag=b8a9d178-6918-443f-858a-9f48cd20cf2a&th=1&linkCode=osi">Laptoptasche</a> <span class="notiz">(Hab eine gute gefunden)</span></div>
+    <div class="wunsch"><span>-</span> <a href="https://acerfex.github.io/404-Not-Found/">Klavier Notenheft</a> <span class="notiz">(Keine Idee → Schön dick)</span></div>
+    <div class="wunsch"><span>-</span> <a href="https://acerfex.github.io/404-Not-Found/">Neues Handy</a> <span class="notiz">(500 GB Speicher/SD + Simkarten Schlitz)</span></div>
+    <div class="wunsch"><span>-</span> <a href="https://acerfex.github.io/404-Not-Found/">Neues Tolino</a> <span class="notiz">(Tolino Vision 6 / Epos / Vision Color)</span></div>
+    <div class="wunsch"><span>-</span> <a href="https://www.amazon.de/Externes-Laufwerk-TF-Kartenleser-Portable-Daten%C3%BCbertragung/dp/B0C13BXRNJ?c=ts&dib=eyJ2IjoiMSJ9.p_a1a8_QHmopbdPI0flEQm6pcifSz69gVX1aJcGMTmXoXO8O98PpqyHY53qKECG9HUOcxes7BrJSZd-N_qXK6-V_bkAh42K6kK9BdKOj9gZb3D2jRK-VFzLSwGnfaQ78Wr9uIMGoq4oMSYRvj8j6Zt_aj_RcAgjcvqYIgM4FObFxkJ_IIJkiuHtQb3BYR6SIvP-1qWzw90ZZAKJ-EnXm1yPnajNvIo1VY4XavGmPAwkLFfBy5dVSbiakLbr7q6veC4_SmYHhHPsH8pA-J4cwM1FPju9kbgTL7NJ9E2cVNeg.MBbTJLZvzW86m_ZvPPx9y6eaArQKKh4hgzLOhUAQScA&dib_tag=se&keywords=Externe+optische+Laufwerke&qid=1726510906&s=computers&sr=1-6&ts_id=430132031">CD Laufwerk (Portable)</a> <span class="notiz">(Hab ein gutes)</span></div>
+    <div class="wunsch"><span>-</span> <a href="https://www.premiumsim.de/details/58721/allnet-flat-8-2-gb?utm">Handy Internet Vertrag</a> <span class="notiz">(PremiumSim oder Fraenk, falls nicht Vodafone Prepaid)</span></div>
+  </div>
+
+</body>
+</html>
